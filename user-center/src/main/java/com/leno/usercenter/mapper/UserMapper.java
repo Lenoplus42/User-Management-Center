@@ -1,9 +1,18 @@
 package com.leno.usercenter.mapper;
 
+import com.leno.usercenter.model.domain.User;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.leno.usercenter.model.User;
 
+/**
+* @author knox
+* @description 针对表【user(stores user in UMC)】的数据库操作Mapper
+* @createDate 2025-06-22 15:39:20
+* @Entity generator.domain.User
+*/
 public interface UserMapper extends BaseMapper<User> {
-    // Inherit from mybatis plus BaseMapper. My batis is a database action tool, mybatis plus provides all CRUD actions for us
-    // Just press CTRL and clink BaseMapper to see the actions
+
 }
+
+
+
+
