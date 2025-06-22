@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: user-center
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/leno
+    username: knox
+    password: 123456
+    # driver-class-name: com.mysql.cj.jdbc.Driver
+
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+server:
+  port: 8080
