@@ -3,6 +3,9 @@ package com.leno.usercenter.service;
 import com.leno.usercenter.model.domain.User;
 import com.baomidou.mybatisplus.extension.service.IService;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 /**
  * @author knox
  * @description Business Logic
@@ -25,7 +28,10 @@ public interface UserService extends IService<User> {
      *
      * @param account
      * @param password
+     * @param request
      * @return Desensitized User Info
      */
-    User userLogin(String account, String password);
+    User userLogin(String account, String password, HttpServletRequest request);
+
+
 }

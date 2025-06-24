@@ -12,6 +12,12 @@ mybatis-plus:
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
     map-underscore-to-camel-case: false
+  global-config:
+    db-config:
+      logic-delete-field: isDelete         # 逻辑删除字段名（根据自己数据库的delete标识去选择）
+      logic-delete-value: 1                 # 删除时填的值（可选）
+      logic-not-delete-value: 0             # 未删除时填的值（可选）
 
 server:
   port: 8080
+
