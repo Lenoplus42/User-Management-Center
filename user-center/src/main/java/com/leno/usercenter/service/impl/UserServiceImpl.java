@@ -1,5 +1,4 @@
 package com.leno.usercenter.service.impl;
-import java.util.Date;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -13,6 +12,8 @@ import org.springframework.util.DigestUtils;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+
+import static com.leno.usercenter.constant.UserConstant.USER_LOGIN_STATE;
 
 /**
 * @author knox
@@ -31,11 +32,6 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
      * Salt Value, Obfuscate Password
      */
     private static final String SALT = "deepDark";
-
-    /**
-     *  User Login State Key
-     */
-    private static final String USER_LOGIN_STATE = "userLoginState";
 
     @Override
     public long userRegister(String account, String password, String checkPassword) {
@@ -118,6 +114,16 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
         }
 
         // Desensitise
+        User secureUser = getSecureUser(user);
+
+        // Record user login session
+        request.getSession().setAttribute(USER_LOGIN_STATE, secureUser); // Attribute in session is a map
+
+        return secureUser;
+    }
+
+    @Override
+    public User getSecureUser(User user) {
         User secureUser = new User();
         secureUser.setId(user.getId());
         secureUser.setUsername(user.getUsername());
@@ -129,10 +135,6 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
         secureUser.setStatus(user.getStatus());
         secureUser.setCreateTime(user.getCreateTime());
         secureUser.setIsDelete(0);
-
-        // Record user login session
-        request.getSession().setAttribute(USER_LOGIN_STATE, user); // Attribute in session is a map
-
         return secureUser;
     }
 }

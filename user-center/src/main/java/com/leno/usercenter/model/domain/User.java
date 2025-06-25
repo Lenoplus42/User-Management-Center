@@ -59,6 +59,11 @@ public class User {
     private Integer status;
 
     /**
+     *  0 - regular user 1 - admin
+     */
+    private Integer role;
+
+    /**
      * 
      */
     private Date createTime;

@@ -33,5 +33,11 @@ public interface UserService extends IService<User> {
      */
     User userLogin(String account, String password, HttpServletRequest request);
 
-
+    /**
+     * Desensitise users
+     *
+     * @param user
+     * @return
+     */
+    User getSecureUser(User user);
 }

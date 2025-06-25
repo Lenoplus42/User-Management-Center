@@ -7,7 +7,9 @@ spring:
     username: knox
     password: 123456
     # driver-class-name: com.mysql.cj.jdbc.Driver
-
+  # session lasting time
+  session:
+    timeout: 86400
 mybatis-plus:
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
