@@ -31,7 +31,7 @@ const LoginMessage: React.FC<{
   />
 );
 
-const Login: React.FC = () => {
+const Register: React.FC = () => {
   const [userLoginState, setUserLoginState] = useState<API.LoginResult>({});
   const [type, setType] = useState<string>('account');
   const { initialState, setInitialState } = useModel('@@initialState');
@@ -185,4 +185,4 @@ const Login: React.FC = () => {
   );
 };
 
-export default Login;
+export default Register;
